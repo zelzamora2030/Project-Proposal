@@ -1,7 +1,7 @@
 # Project Title: RollCall
 
 ## Project Description
-This is a simple Python program that records and manages attendance for students and employees. It allows adding new participants, marking them as present,tardy or absent,and viewing attendance summaries.
+This is a simple Python program that records and manages attendance for students and employees. It allows adding new participants, marking them as present, tardy or absent,and viewing attendance summaries. The program now includes the ability to search for participants, and shows alerts when someone has been absent too many times.
 
 ## Features
 - Add and remove participants
@@ -10,6 +10,9 @@ This is a simple Python program that records and manages attendance for students
 - Display attendance percentage for each participant
 - Displays how many times they were absent or tardy
 
+## Features [UPDATED]
+-	Search participant
+-	Absent warning alert (maximum of 5 absences)
 
 ## How to Run the Program
 1. Make sure you have Python installed.
