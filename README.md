@@ -25,16 +25,19 @@ This is a simple Python program that records and manages attendance for students
 1. Add participant
 2. Mark attendance
 3. View attendance
-4. Exit
+4. Search participant
+5. Remove Participant
+6. Exit
 
 Choose an option: 2
-Enter participant name: Alice
+Enter name: Alice
 Mark as (P/A/T): T
-Attendance marked successfully!
+Attendance marked!
+
+Choose an option: 3
 
 --- Attendance Records ---
-Alice - Present: 3 | Absent: 1 | Tardy: 2 | Attendance: 71.4%
-
+Alice - P:0 A:0 T:1 | 0.0%
 
 ## Contributors
 - ZAMORA: Name of member 1 (attendance marking and counting system)
@@ -97,5 +100,13 @@ c. Accessibility: The program/system can run on basic computers without needing 
 Updated the README.md to provide a clearer description of the RollCall project and to include the updated features such as participant search and the absence of warning alert system. 
 (egviduya2030 authored) 
 
+Updated the RollCall program code to include a participant search feature and an automatic absence warning system that notfies the user when a participant reaches the maximum absence limit.
+(christuffjetlee updated the code)
+
 Updated the README.md to include a detailed methodology explaining how the RollCall system works, covering core feature implementation, attendance calculations, updated search functionality, absence warning logic, technologies used, system design decisions, and ethical considerations.
 (zelzamora2030 authored)
+
+Zelmora2030 merged pull request #1 from christuffjetlee/patch-1 to update the RollCall program with the latest improvements.
+
+Updated the README.md and RollCall program to include instructions on how to run the program, added participant search functionality, and implemented an automatic absence warning system for participants who reach the maximum absence limit.
+(zelmora2030 authored)
