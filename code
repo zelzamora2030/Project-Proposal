@@ -1,51 +1,85 @@
-
 attendance = {}
 
+MAX_ABSENCES = 5
+
 while True:
+    print("\n--- Attendance Menu ---")
     print("1. Add participant")
     print("2. Mark attendance")
     print("3. View attendance")
-    print("4. Exit")
+    print("4. Search participant")
+    print("5. Remove participant")
+    print("6. Exit")
 
     choice = input("Choose an option: ")
 
-
     if choice == "1":
-        name = input("Enter name: ")
+        name = input("Enter name: ").strip()
         if name in attendance:
-            print("\nName already added!")
+            print("Name already added!")
         else:
             attendance[name] = {"P": 0, "A": 0, "T": 0}
             print("Added successfully!")
 
     elif choice == "2":
-        name = input("Enter name: ")
+        name = input("Enter name: ").strip()
         if name not in attendance:
             print("Name not found!")
         else:
             status = input("Mark as (P/A/T): ").upper()
             if status in ["P", "A", "T"]:
                 attendance[name][status] += 1
-                print("Marked!")
+                print("Attendance marked!")
+
+                if attendance[name]["A"] >= MAX_ABSENCES:
+                    print("WARNING: Too many absences!")
+
             else:
                 print("Invalid input! Use P, A, or T.")
 
     elif choice == "3":
-        print("--- Attendance Records ---")
+        print("\n--- Attendance Records ---")
+        if not attendance:
+            print("No records yet.")
         for name, record in attendance.items():
             total = record["P"] + record["A"] + record["T"]
-            if total > 0:
-                percent = (record["P"] / total) * 100
-            else:
-                percent = 0
-            print(f"{name} - P:{record['P']} A:{record['A']} T:{record['T']} | {percent:.1f}%")
+            percent = (record["P"] / total) * 100 if total > 0 else 0
+
+            print(
+                f"{name} - "
+                f"P:{record['P']} "
+                f"A:{record['A']} "
+                f"T:{record['T']} "
+                f"| {percent:.1f}%"
+            )
         print()
 
+   
     elif choice == "4":
+        name = input("Enter name to search: ").strip()
+        if name in attendance:
+            r = attendance[name]
+            total = r["P"] + r["A"] + r["T"]
+            percent = (r["P"] / total) * 100 if total > 0 else 0
+            print(
+                f"{name} - P:{r['P']} A:{r['A']} T:{r['T']} | {percent:.1f}%"
+            )
+        else:
+            print("Participant not found.")
+
+    
+    elif choice == "5":
+        name = input("Enter name to remove: ").strip()
+        if name in attendance:
+            del attendance[name]
+            print("Participant removed.")
+        else:
+            print("Name not found.")
+
+    
+    elif choice == "6":
         print("Goodbye!")
         break
 
     else:
         print("Invalid choice! Try again.")
-
-
