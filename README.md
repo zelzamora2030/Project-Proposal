@@ -36,9 +36,66 @@ Attendance marked successfully!
 Alice - Present: 3 | Absent: 1 | Tardy: 2 | Attendance: 71.4%
 
 
-
-
 ## Contributors
 - ZAMORA: Name of member 1 (attendance marking and counting system)
 - VIDUYA: Name of member 2 (data storage and retrieval)
 - LADAGA: Name of member 3 (UI and error handling)
+
+
+## Detailed Methodology
+1. Implementation of Core Features
+a. Add and Remove Participants
+Participants are stored in a structured format. 
+    - each participant is assigned a unique ID.
+    - adding a participant appends their record to the data structure.
+    - removing a participant deletes their record from the system.
+b.  Mark Attendance
+Attendance is record daily with three possible statuses:
+    * Present
+    * Tardy
+    * Absent
+The program updates the attendance record by:
+    - Storing daily records in a file
+    - Updating the total attendance percentage automatically.
+c. Attendance Percentage & Summary
+Attendace = Days Present/Total Recorded Days x 100
+
+The system then displays:
+    * Name
+    * Total Absences
+    * Total Tardies
+    * Total Days Present
+    * Attendance Percentage
+d. Search Participant [UPDATED FEATURE]
+The user can search a participant by typing their name or a participants name to quickly find their record.
+e. Warning of Total Absences
+If a participant reaches 5 absences, the program shows a warning message.
+
+2. Technologies Used
+    - Python:
+        - Good for Small Systems like this
+        - Contains built-in tools like lists and dictionaries that makes recording data simple
+
+3.  Back-end & Front-end
+    - Back-end: The PYTHON CODE that processes attendance, calculations, and data storage.
+    - Front-end: The text shown in the command-line where the user inputs the commands.
+
+4. Key Designs and Trade-offs
+a. Simplicity over Complexity
+    - The system uses  text files instead of a database, which makes it easier to build. However, it may not handle VERY large groups.
+b. Console Interface
+    - The system uses text-based interface instead of a graphical one.
+c. Fixed Absence Limit
+    - The warning is set ay 5 absences. This is simple, but it cannot be changed unless the code is edited.
+
+5. Ethical Considerations
+a. User Privacy: The program only stores attendance information. It does not collect unnecessary personal details.
+b. Data Safety: The data stored locally, which reduces online risks.
+c. Accessibility: The program/system can run on basic computers without needing high performance.
+
+## Commit Messages
+Updated the README.md to provide a clearer description of the RollCall project and to include the updated features such as participant search and the absence of warning alert system. 
+(egviduya2030 authored) 
+
+Updated the README.md to include a detailed methodology explaining how the RollCall system works, covering core feature implementation, attendance calculations, updated search functionality, absence warning logic, technologies used, system design decisions, and ethical considerations.
+(zelzamora2030 authored)
