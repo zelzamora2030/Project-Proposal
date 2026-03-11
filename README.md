@@ -9,10 +9,15 @@ This is a simple Python program that records and manages attendance for students
 - View daily attendance records
 - Display attendance percentage for each participant
 - Displays how many times they were absent or tardy
+- Search participant
+- Absent warning alert (maximum of 5 absences)
 
 ## Features [UPDATED]
--	Search participant
--	Absent warning alert (maximum of 5 absences)
+-	Checks Whether Tardy is Excused or Unecused
+-	Checks Whether Absence is Excused or Unexcused
+-	Asks the User why the participant is Absent or Tardy
+-	Records Time In for participant
+-	Calculate and Display number of minutes late
 
 ## How to Run the Program
 1. Make sure you have Python installed.
@@ -88,7 +93,7 @@ If a participant reaches 5 absences, the program shows a warning message.
     - Back-end: The PYTHON CODE that processes attendance, calculations, and data storage.
     - Front-end: The text shown in the command-line where the user inputs the commands.
 
-5. Key Designs and Trade-offs
+4. Key Designs and Trade-offs
 
 a. Simplicity over Complexity
     - The system uses  text files instead of a database, which makes it easier to build. However, it may not handle VERY large groups.
