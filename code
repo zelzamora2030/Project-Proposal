@@ -1,6 +1,7 @@
 attendance = {}
 
-MAX_ABSENCES = 5
+MAX_ABSENCES = 3
+EXPECTED_TIME = 9 * 60
 
 while True:
     print("\n--- Attendance Menu ---")
@@ -15,68 +16,119 @@ while True:
 
     if choice == "1":
         name = input("Enter name: ").strip()
+
         if name in attendance:
             print("Name already added!")
         else:
-            attendance[name] = {"P": 0, "A": 0, "T": 0}
+            attendance[name] = {
+                "P": 0,
+                "A": 0,
+                "T": 0,
+                "excused_absence": 0,
+                "unexcused_absence": 0,
+                "excused_tardy": 0,
+                "unexcused_tardy": 0
+            }
             print("Added successfully!")
 
     elif choice == "2":
         name = input("Enter name: ").strip()
+
         if name not in attendance:
             print("Name not found!")
+
         else:
             status = input("Mark as (P/A/T): ").upper()
-            if status in ["P", "A", "T"]:
-                attendance[name][status] += 1
-                print("Attendance marked!")
+
+            if status == "P":
+                attendance[name]["P"] += 1
+                print("Marked Present.")
+
+            elif status == "A":
+                attendance[name]["A"] += 1
+
+                reason = input("Why is the participant absent? ")
+                excused = input("Is the absence Excused? (Y/N): ").upper()
+
+                if excused == "Y":
+                    attendance[name]["excused_absence"] += 1
+                else:
+                    attendance[name]["unexcused_absence"] += 1
 
                 if attendance[name]["A"] >= MAX_ABSENCES:
-                    print("WARNING: Too many absences!")
+                    print("⚠ WARNING: Participant reached 3 absences!")
+
+            elif status == "T":
+                attendance[name]["T"] += 1
+
+                time_in = input("Enter Time-In (HH:MM): ")
+                h, m = map(int, time_in.split(":"))
+                time_in_minutes = h * 60 + m
+
+                minutes_late = max(0, time_in_minutes - EXPECTED_TIME)
+
+                print(f"Minutes late: {minutes_late}")
+
+                reason = input("Why was the participant tardy? ")
+                excused = input("Is the tardy Excused? (Y/N): ").upper()
+
+                if excused == "Y":
+                    attendance[name]["excused_tardy"] += 1
+                else:
+                    attendance[name]["unexcused_tardy"] += 1
 
             else:
                 print("Invalid input! Use P, A, or T.")
 
     elif choice == "3":
         print("\n--- Attendance Records ---")
+
         if not attendance:
             print("No records yet.")
+
         for name, record in attendance.items():
+
             total = record["P"] + record["A"] + record["T"]
             percent = (record["P"] / total) * 100 if total > 0 else 0
 
             print(
-                f"{name} - "
+                f"{name} | "
                 f"P:{record['P']} "
                 f"A:{record['A']} "
                 f"T:{record['T']} "
-                f"| {percent:.1f}%"
+                f"| Attendance: {percent:.1f}%"
             )
-        print()
 
-   
     elif choice == "4":
         name = input("Enter name to search: ").strip()
+
         if name in attendance:
             r = attendance[name]
             total = r["P"] + r["A"] + r["T"]
             percent = (r["P"] / total) * 100 if total > 0 else 0
-            print(
-                f"{name} - P:{r['P']} A:{r['A']} T:{r['T']} | {percent:.1f}%"
-            )
+
+            print(f"\n{name}")
+            print(f"Present: {r['P']}")
+            print(f"Absent: {r['A']}")
+            print(f"Tardy: {r['T']}")
+            print(f"Excused Absences: {r['excused_absence']}")
+            print(f"Unexcused Absences: {r['unexcused_absence']}")
+            print(f"Excused Tardy: {r['excused_tardy']}")
+            print(f"Unexcused Tardy: {r['unexcused_tardy']}")
+            print(f"Attendance Rate: {percent:.1f}%")
+
         else:
             print("Participant not found.")
 
-    
     elif choice == "5":
         name = input("Enter name to remove: ").strip()
+
         if name in attendance:
             del attendance[name]
             print("Participant removed.")
         else:
             print("Name not found.")
 
-    
     elif choice == "6":
         print("Goodbye!")
         break
