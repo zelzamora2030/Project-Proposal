@@ -4,40 +4,60 @@ The program also includes the ability to search for participants and displays al
 
 ## Features
 Add and remove participants
+
 Marks attendance for each day
+
 View daily attendance records
+
 Display attendance percentage for each participant
+
 Displays how many times they were absent or tardy
+
 Search participant
+
 Absent warning alert (maximum of 5 absences)
-Features [UPDATED]
+
+## Features [UPDATED]
+
 Checks whether tardy is excused or unexcused
+
 Checks whether absence is excused or unexcused
+
 Asks the user why the participant is absent or tardy
+
 Records time-in for participants
+
 Calculates and displays the number of minutes late
 
 ## How to Run the Program
-Make sure you have Python installed.
-Download the file RollCall.py.
-Open a terminal or command prompt.
-Run the program:
-python RollCall.py
-or press F5 / click “Run” if using an IDE.
-Follow the on-screen instructions to manage attendance.
+1. Make sure you have Python installed.
+2. Download the file RollCall.py.
+3. Open a terminal or command prompt.
+4. Run the program:
+  python RollCall.py
+  or press F5 / click “Run” if using an IDE.
+5. Follow the on-screen instructions to manage attendance.
+
 
 # Example Output
 Add participant
+
 Mark attendance
+
 View attendance
+
 Search participant
+
 Remove participant
+
 Exit
+
 Choose an option: 2
 Enter name: Alice
 Mark as (P/A/T): T
 Attendance marked!
 Choose an option: 3
+
 --- Attendance Records ---
 Alice - P:0 A:0 T:1 | 0.0%
 
@@ -48,12 +68,13 @@ VIDUYA – Data storage and retrieval
 LADAGA – User interface and error handling
 
 ## Detailed Methodology
-a. Add and Remove Participants
+  a. Add and Remove Participants
 Participants are stored in a structured format:
 Each participant is assigned a unique ID
 Adding a participant appends their record to the data structure
 Removing a participant deletes their record from the system
-b. Mark Attendance
+
+  b. Mark Attendance
 Attendance is recorded daily with three possible statuses:
 Present
 Tardy
@@ -61,7 +82,8 @@ Absent
 The program updates attendance by:
 Storing daily records in a file
 Automatically updating attendance percentages
-c. Attendance Percentage & Summary
+
+  c. Attendance Percentage & Summary
 Attendance is calculated using the formula:
 Attendance = (Days Present / Total Recorded Days) × 100
 The system displays:
@@ -70,7 +92,8 @@ Total absences
 Total tardies
 Total days present
 Attendance percentage
-d. Search Participant [UPDATED FEATURE]
+
+  d. Search Participant [UPDATED FEATURE]
 The user can search for a participant by typing their name to quickly find their record.
 e. Warning of Total Absences
 If a participant reaches 5 absences, the program shows a warning message.
