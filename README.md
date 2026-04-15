@@ -1,115 +1,102 @@
-# Project Title: RollCall
-
 ## Project Description
-This is a simple Python program that records and manages attendance for students and employees. It allows adding new participants, marking them as present, tardy or absent,and viewing attendance summaries. The program now includes the ability to search for participants, and shows alerts when someone has been absent too many times.
+This is a simple Python program that records and manages attendance for students and employees. It allows users to add participants, mark them as present, tardy, or absent, and view attendance summaries.
+The program also includes the ability to search for participants and displays alerts when someone has been absent too many times. Additional features include time-in recording, tardiness calculation, and recording reasons for absence or tardiness.
 
 ## Features
-- Add and remove participants
-- Marks attendance for each day
-- View daily attendance records
-- Display attendance percentage for each participant
-- Displays how many times they were absent or tardy
-- Search participant
-- Absent warning alert (maximum of 5 absences)
-
-## Features [UPDATED]
--	Checks Whether Tardy is Excused or Unecused
--	Checks Whether Absence is Excused or Unexcused
--	Asks the User why the participant is Absent or Tardy
--	Records Time In for participant
--	Calculate and Display number of minutes late
+Add and remove participants
+Marks attendance for each day
+View daily attendance records
+Display attendance percentage for each participant
+Displays how many times they were absent or tardy
+Search participant
+Absent warning alert (maximum of 5 absences)
+Features [UPDATED]
+Checks whether tardy is excused or unexcused
+Checks whether absence is excused or unexcused
+Asks the user why the participant is absent or tardy
+Records time-in for participants
+Calculates and displays the number of minutes late
 
 ## How to Run the Program
-1. Make sure you have Python installed.
-2. Download the file RollCall.py
-3. Open a terminal or command prompt.
-4. Run the program by pressing F5 or clicking 'Run' 
-5. Follow the on-screen instructions to manage attendance.
+Make sure you have Python installed.
+Download the file RollCall.py.
+Open a terminal or command prompt.
+Run the program:
+python RollCall.py
+or press F5 / click “Run” if using an IDE.
+Follow the on-screen instructions to manage attendance.
 
-##Example Output
-1. Add participant
-2. Mark attendance
-3. View attendance
-4. Search participant
-5. Remove Participant
-6. Exit
-
+# Example Output
+Add participant
+Mark attendance
+View attendance
+Search participant
+Remove participant
+Exit
 Choose an option: 2
 Enter name: Alice
 Mark as (P/A/T): T
 Attendance marked!
-
 Choose an option: 3
-
 --- Attendance Records ---
 Alice - P:0 A:0 T:1 | 0.0%
 
-## Contributors
-- ZAMORA: Name of member 1 (attendance marking and counting system)
-- VIDUYA: Name of member 2 (data storage and retrieval)
-- LADAGA: Name of member 3 (UI and error handling)
 
+## Contributors
+ZAMORA – Attendance marking and counting system
+VIDUYA – Data storage and retrieval
+LADAGA – User interface and error handling
 
 ## Detailed Methodology
-1. Implementation of Core Features
-
 a. Add and Remove Participants
-Participants are stored in a structured format. 
-    - each participant is assigned a unique ID.
-    - adding a participant appends their record to the data structure.
-    - removing a participant deletes their record from the system.
-
-b.  Mark Attendance
-Attendance is record daily with three possible statuses:
-    * Present
-    * Tardy
-    * Absent
-The program updates the attendance record by:
-    - Storing daily records in a file
-    - Updating the total attendance percentage automatically.
-
+Participants are stored in a structured format:
+Each participant is assigned a unique ID
+Adding a participant appends their record to the data structure
+Removing a participant deletes their record from the system
+b. Mark Attendance
+Attendance is recorded daily with three possible statuses:
+Present
+Tardy
+Absent
+The program updates attendance by:
+Storing daily records in a file
+Automatically updating attendance percentages
 c. Attendance Percentage & Summary
-Attendace = Days Present/Total Recorded Days x 100
-
-The system then displays:
-    * Name
-    * Total Absences
-    * Total Tardies
-    * Total Days Present
-    * Attendance Percentage
-    
+Attendance is calculated using the formula:
+Attendance = (Days Present / Total Recorded Days) × 100
+The system displays:
+Name
+Total absences
+Total tardies
+Total days present
+Attendance percentage
 d. Search Participant [UPDATED FEATURE]
-The user can search a participant by typing their name or a participants name to quickly find their record.
-
+The user can search for a participant by typing their name to quickly find their record.
 e. Warning of Total Absences
 If a participant reaches 5 absences, the program shows a warning message.
 
-2. Technologies Used
-    - Python:
-        - Good for Small Systems like this
-        - Contains built-in tools like lists and dictionaries that makes recording data simple
+# Technologies Used
+Python
+Suitable for small systems
+Provides built-in tools like lists and dictionaries for simple data handling
+Back-end: Python code that processes attendance, calculations, and data storage
+Front-end: Text-based interface in the command line where users input commands
 
-3.  Back-end & Front-end
-    - Back-end: The PYTHON CODE that processes attendance, calculations, and data storage.
-    - Front-end: The text shown in the command-line where the user inputs the commands.
-
-4. Key Designs and Trade-offs
-
+# Key Designs and Trade-offs
 a. Simplicity over Complexity
-    - The system uses  text files instead of a database, which makes it easier to build. However, it may not handle VERY large groups.
-
+The system uses text files instead of a database, making it easier to build but less suitable for very large groups
 b. Console Interface
-    - The system uses text-based interface instead of a graphical one.
-
+The system uses a text-based interface instead of a graphical interface
 c. Fixed Absence Limit
-    - The warning is set ay 5 absences. This is simple, but it cannot be changed unless the code is edited.
+The warning is set at 5 absences. This is simple but cannot be changed without editing the code
 
-5. Ethical Considerations
-a. User Privacy: The program only stores attendance information. It does not collect unnecessary personal details.
-
-b. Data Safety: The data stored locally, which reduces online risks.
-
-c. Accessibility: The program/system can run on basic computers without needing high performance.
+# Ethical Considerations
+a. User Privacy
+The program only stores attendance information and does not collect unnecessary personal data
+b. Data Safety
+Data is stored locally, reducing online risks
+c. Accessibility
+The system can run on basic computers without requiring high performance
 
 ## Commit Messages
 Updated the README.md to provide a clearer description of the RollCall project and to include the updated features such as participant search and the absence of warning alert system. 
