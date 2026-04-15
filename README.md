@@ -95,29 +95,36 @@ Attendance percentage
 
   d. Search Participant [UPDATED FEATURE]
 The user can search for a participant by typing their name to quickly find their record.
-e. Warning of Total Absences
+
+  e. Warning of Total Absences
 If a participant reaches 5 absences, the program shows a warning message.
 
 # Technologies Used
 Python
 Suitable for small systems
 Provides built-in tools like lists and dictionaries for simple data handling
+
 Back-end: Python code that processes attendance, calculations, and data storage
+
 Front-end: Text-based interface in the command line where users input commands
 
 # Key Designs and Trade-offs
 a. Simplicity over Complexity
 The system uses text files instead of a database, making it easier to build but less suitable for very large groups
+
 b. Console Interface
 The system uses a text-based interface instead of a graphical interface
+
 c. Fixed Absence Limit
 The warning is set at 5 absences. This is simple but cannot be changed without editing the code
 
 # Ethical Considerations
 a. User Privacy
 The program only stores attendance information and does not collect unnecessary personal data
+
 b. Data Safety
 Data is stored locally, reducing online risks
+
 c. Accessibility
 The system can run on basic computers without requiring high performance
 
